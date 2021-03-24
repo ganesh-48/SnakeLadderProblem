@@ -10,29 +10,19 @@ public class SnakeLadder {
 		final int LADDER = 1;
 		int SNAKE = 2;
 		int PLAYER_POSITION = 0;
-
-		// sarting position of player
-		System.out.println("starting position of player is  " + START);
+		int DICE_ROLL_COUNT=0;
+		
+		
 
 		while (PLAYER_POSITION <= 100) {
 			// roll die get a random number
 			int dieValue = (int) ((Math.random() * 100) % 6) + 1;
-			System.out.println("player roll die get random number is : " + dieValue);
-
+			DICE_ROLL_COUNT++;
+			
 			// get a player status status in snake and ladder
 			int playerStatus = (int) (Math.random() * 100) % 3;
 
-			// print player status
-			if (playerStatus == 0) {
-				System.out.println("player is in No Play status ");
-			}
-			if (playerStatus == 1) {
-				System.out.println("player is in ladder status ");
-			}
-			if (playerStatus == 2) {
-				System.out.println("player is in snake status ");
-			}
-
+			
 			// checking player position
 			switch (playerStatus) {
 			case NOPLAY:
@@ -54,9 +44,10 @@ public class SnakeLadder {
 			}
 
 			// player position reaches 100
-			if (PLAYER_POSITION == 100) {
-				System.out.println("player reaches winning position :" + PLAYER_POSITION);
-				break;
+			if (PLAYER_POSITION > 100) {
+				PLAYER_POSITION -=dieValue;
+				System.out.println("player reaches previous position :" + PLAYER_POSITION);
+	
 			}
 		
 		
@@ -64,7 +55,9 @@ public class SnakeLadder {
 			//check player position reached to  100
 			if(PLAYER_POSITION == 100)
 			{
-				System.out.println("player reached winning position  :"+PLAYER_POSITION);
+				System.out.println("player reached previous position  :"+PLAYER_POSITION);
+				System.out.println("total number of times dice rolled is: "+DICE_ROLL_COUNT);
+
 				break;
 			}
 		}
