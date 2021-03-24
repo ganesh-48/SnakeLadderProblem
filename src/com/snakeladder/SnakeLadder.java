@@ -23,13 +23,13 @@ public class SnakeLadder {
 			int playerStatus = (int) (Math.random() * 100) % 3;
 
 			// print player status
-			if (playerStatus == NOPLAY) {
+			if (playerStatus == 0) {
 				System.out.println("player is in No Play status ");
 			}
-			if (playerStatus == LADDER) {
+			if (playerStatus == 1) {
 				System.out.println("player is in ladder status ");
 			}
-			if (playerStatus == SNAKE) {
+			if (playerStatus == 2) {
 				System.out.println("player is in snake status ");
 			}
 
@@ -50,12 +50,21 @@ public class SnakeLadder {
 			// player position less than 0
 			if (PLAYER_POSITION < 0) {
 				PLAYER_POSITION = 0;
-				System.out.println("player position is " + PLAYER_POSITION);
+				System.out.println("player position is : " + PLAYER_POSITION);
 			}
 
 			// player position reaches 100
 			if (PLAYER_POSITION == 100) {
-				System.out.println("player reaches winning position " + PLAYER_POSITION);
+				System.out.println("player reaches winning position :" + PLAYER_POSITION);
+				break;
+			}
+		
+		
+			
+			//check player position reached to  100
+			if(PLAYER_POSITION == 100)
+			{
+				System.out.println("player reached winning position  :"+PLAYER_POSITION);
 				break;
 			}
 		}
